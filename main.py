@@ -1,16 +1,13 @@
 from pytube import YouTube
-import shutil
-import datetime
-import math
 from moviepy.editor import *
-import os
 import requests
 import shutil
+import os
 
 
 class YtbDownload(object):
     @staticmethod
-    def download(urls):
+    def download(urls, convert_mp3=False):
 
         if type(urls) is not list or len(urls) == 0:
             raise Exception('URLs parameter must be a list')
@@ -19,12 +16,14 @@ class YtbDownload(object):
 
         for i, url in enumerate(urls):
             try:
-                print(i)
                 youtube = YouTube(url)
                 video = youtube.streams[0]
                 video.download('./files/video', filename='movie_{0}'.format(i))
-                # movie = VideoFileClip(os.path.abspath("files/video/movie.mp4"))
-                # movie.audio.write_audiofile(os.path.abspath("files/mp3/sound.mp3"))
+
+                if convert_mp3:
+                    movie = VideoFileClip(os.path.abspath("files/video/movie.mp4"))
+                    movie.audio.write_audiofile(os.path.abspath("files/mp3/sound.mp3"))
+
                 result = True
             except Exception as e:
                 raise Exception('Error when trying to download file')
