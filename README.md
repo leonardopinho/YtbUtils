@@ -1,3 +1,3 @@
-# PyTube
+# YtbUtils
 
-Python application to download Youtube videos or convert to mp3
+Python project to download Youtube videos or convert to mp3
