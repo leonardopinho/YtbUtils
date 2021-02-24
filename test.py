@@ -14,7 +14,7 @@ class YtbDownloadTest(unittest.TestCase):
         self.assertEqual(result, True)
 
     def test_download_stream_file(self):
-        url = ''
+        url = '__url_here__'
         result = StreamUtils.download_file(url)
         self.assertIsNotNone(result)
 
