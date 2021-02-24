@@ -6,7 +6,7 @@ from src.stream_utils import StreamUtils
 
 class YtbUtilsTest(unittest.TestCase):
     urls = [
-        'https://www.youtube.com/watch?v=c_17jALtLbQ',
+        'https://www.youtube.com/watch?v=57KRiqDa7jI',
     ]
 
     def test_download_youtube_file(self):
