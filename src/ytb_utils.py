@@ -25,8 +25,10 @@ class YtbUtils(object):
                 video.download('./media/video', filename=file_movie)
 
                 if convert_mp3:
-                    movie = VideoFileClip(os.path.abspath('media/video/{0}}.mp4'.format(file_movie)))
+                    path_video = os.path.abspath('media/video/{0}.mp4'.format(file_movie))
+                    movie = VideoFileClip(path_video)
                     movie.audio.write_audiofile(os.path.abspath('media/mp3/file_{0}.mp3'.format(filename)))
+                    os.remove(path_video)
 
                 result = True
             except Exception as e:
