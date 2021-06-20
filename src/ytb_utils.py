@@ -8,7 +8,7 @@ class YtbUtils(object):
     @staticmethod
     def download(urls, convert_mp3=False):
 
-        if urls is None or type(urls) is not list or len(urls) == 0:
+        if urls is None or isinstance(urls, list) is False or len(urls) == 0:
             raise Exception('URLs parameter must be a list')
 
         result = False
